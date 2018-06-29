@@ -2,8 +2,8 @@
 Computer Programming Block 2 Summer 2018
 
 
-'''python
+```python
 a = [1,2,3]
 b = (transpose) a
 print('a=', a, 'b=', b)
-'''
+```
