@@ -74,3 +74,6 @@ r3 = Dartmouth University
 r4 = Edinburgh University
 
 This problem exists because as seen above, Aaron's top pick will be r1, which is Boston University, and Boston University's top pick will s3 be Dan.  
+
+The next stage is the application and acceptance process.
+The students will apply to their top choice first. The residency's will accept the lowest possible x in their array choices of r[x]. The earlier in the array, the higher the pick the student is for that residency position. 
