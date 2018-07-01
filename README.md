@@ -18,9 +18,89 @@ I have decided to switch to the Gale Shapely matching problem. Where I will be t
 
 I will be starting this code in C language.
 The first step will be creating a random order of preferences for however many students and residencies.
-I found a code online where I could get random digits, I would want to get my program to the stage of accepting the amount of random digits (being the amount of students and the amount of residencies) to be given at the command line. 
-As I am only begining this project, the above is my goal, for right now I am assigning the amount of residencies/students and am manually inputting their number preferences. 
+I found a code online where I could get random digits: https://stackoverflow.com/questions/44187061/how-to-shuffle-an-array-in-c
+``` c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void shuffle(int *array, int n) {
+    srand((unsigned)time(NULL));
+    for (int i = 0; i < n - 1; i++) {
+        size_t j = i + rand() / (RAND_MAX / (n - i) + 1);
+        int t = array[j];
+        array[j] = array[i];
+        array[i] = t;
+    }
+}
+
+#define N 6
+
+int main() {
+    int positions[N] = {0, 1, 2, 3, 4, 5};
+
+    for (int j = 0; j < 10; j++) {
+        shuffle(positions, N);
+        for (int x = 0; x < N; x++) printf("%d ", positions[x]);
+        printf("\n");
+    }
+
+    return 0;
+}
 ```
+I would want to get my program to the stage of accepting the amount of random digits (being 'n' the amount of students and the amount of residencies) to be given at the command line. This is the code that I reworked to try and give me a random order of numbers between 0 and the n given amount. THe key in this problem is having the same amount of med students as residency positions, so it is a matter of ranking preferences of number that can correspond to the partner. Having student [0] (student #1) have their preferences be: n-4, n-1, n, n-2,n-3... until n amount of terms (residency positions) then we see the preference in comparison to a corresponding list.
+
+Say the students were:
+s0 = Aaron
+s1 = Byron
+s2 = Cindy
+s3 = Dan
+s4 = Elen
+and 
+r0 = Alabama State University
+r1 = Boston University
+r2 = Cornell University
+r3 = Dartmouth University
+r4 = Edinburgh University
+
+My goal would be to have s[n] which is equal to r[n] have n come from the command line, randomize the order of numbers from 0--> n.
+The code so far that I could rework it:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+void shuffle(int *array, int n) {
+    srand((unsigned)time(NULL));
+    for (int i = 0; i < n; i++) {
+        size_t j = i + rand() / (RAND_MAX / (n - i) + 1);
+        int t = array[j];
+        array[j] = array[i];
+        array[i] = t;
+    }
+}
+
+
+
+int main(int argc, char *argv[]) {
+    int arg1, N;
+    sscanf(argv[1], "%d", &arg1);
+    N = arg1;
+    int positions[N];
+    
+    for (int j = 0; j < 1; j++) {
+        shuffle(positions, N);
+        for (int x = 0; x < N; x++) printf("%d ", positions[x]);
+        printf("\n");
+    }
+    
+    return 0;
+}
+```
+
+When trying to compile I get a 'segmentation fault 11:' which from what I can tell means that somewhere in my program I am taking a lot of space. As I am only begining this project, the above is my goal, and so for right now I am assigning the amount of residencies/students and am manually inputting their number preferences. 
+``` c
 #include <stdio.h>
 int main (void) {
     int s0[] = {1,3,4,0,2};
@@ -60,18 +140,6 @@ The Output is:
  
 Above shows my defining of integer arrays for students 1 and 2. I will be using the order of numbers in the array as each entity's preferences for the corresponding type. 
 
-Say the students were:
-s0 = Aaron
-s1 = Byron
-s2 = Cindy
-s3 = Dan
-s4 = Elen
-and 
-r0 = Alabama State University
-r1 = Boston University
-r2 = Cornell University
-r3 = Dartmouth University
-r4 = Edinburgh University
 
 This problem exists because as seen above, Aaron's top pick will be r1, which is Boston University, and Boston University's top pick will s3 be Dan.  
 
