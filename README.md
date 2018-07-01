@@ -39,7 +39,8 @@ int main (void) {
     return 0;
 }
 ```
-The Outpu is: 
+The Output is: 
+
  s0[0]    = 1
 
  s1[0]    = 3
