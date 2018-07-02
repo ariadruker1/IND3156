@@ -132,9 +132,10 @@ returned:       Oxford ;    Camebridge  Oxford and Camebridge   Caltech     Oxfo
 and ./a.out 7
 Oxfortd, Caltech and Camebridge
 
-The next possible integer being ./a.out 8 would mean we added 1000 binary wise we would have added another column. This would allow us to then go up to ./a.out 15 before having to add another 1 to the 16 column of binary code.  
+The next possible integer being ./a.out 8 would mean we added the 1000 binary code and would therefore have to add another column of 1/0 options. This would allow us to then go up to ./a.out 15 before having to add another 1/0 to the 16 column of binary code.  
 
 
+My final thoughts going forward are wondering if I would have to input every possible combinations score, or if there is a way the program could recognize the value of each schoool and know which values/schools sums would equal the value of arg 1 since there would only be 1 correct answer from the binary values. 
 
-My final thoughts going forward are wondering if I would have to input every answer option or if there is a way I could have arg 1 = what combination of schools and have the program recognize the value of each schoool and know which values/schools sums to equal the value of arg 1.
+
 
