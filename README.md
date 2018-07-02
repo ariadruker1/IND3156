@@ -137,7 +137,7 @@ The students will apply to their top choice residency first. The residency's wil
 The first round of proposals will be the student going to their number one choice. To know which school that is, we have to look at their s[0] value. for s0[0] the value is 1. This means I would want to try and pair r1 with s0[0]. 
 
 I tried creating a function that would look at the values within the array and match it to the other array. My problem is that I'm not able to get the names of the numbers in the array be seen as digits, they are only part of the name. So the (num) value is not replacing the digit in res in order to find the first choice of the student.
-```
+``` c
 int pairing(int student[], int res0[], int res1[])
     num = student[0]
     int pair[] = {student[], res(num))}
@@ -195,7 +195,7 @@ Caltech     0   0   1   1
 
 I realized in order to ensure accuracy I would have to have only 1 school be represented by each base 2. Say Aaron had a score of 3, the compute would not know if he had applied to both Oxford and Camedridge or if he had onl applied to Caltech. Going forward I can only assign 1 base per university.
 
-```
+``` c
 int main(void) {
     int Oxford, Camebridge, Caltech;
     Oxford = 0b1;
