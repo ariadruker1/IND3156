@@ -20,6 +20,8 @@ int main(void) {
 ```
 my output was : i = 42 b = 3
 
+### appplication to project
+
 To then apply it to my problem I began to think of binary formating where if given a score I could extract information. Below is where Oxford = 1 Camebridge = 2 and Caltech = 3. 
 
 Binary      8   4   2   1
@@ -41,6 +43,8 @@ int main(void) {
     return 0;
 }
 ```
+### Accepting and reading values from command line
+
 Next I wanted to be able to input scores from the command line to know where students applied. Looking to our [Monte Carlo](http://10.0.161.51/Su18B2/index.php/Monte_Carlo_integrator) for inspiration as to how 
 
 ``` c
@@ -79,7 +83,7 @@ Finally I wanted to be able to have cominations of schools, so I added another c
         return 0;
     }
 ```
-My final code being:
+### My final [code](https://github.com/ariadruker1/IND3156/blob/master/application.c):
 ``` c
 #include <stdio.h>
 
@@ -134,8 +138,9 @@ Oxfortd, Caltech and Camebridge
 
 The next possible integer being ./a.out 8 would mean we added the 1000 binary code and would therefore have to add another column of 1/0 options. This would allow us to then go up to ./a.out 15 before having to add another 1/0 to the 16 column of binary code.  
 
+# Change Log
 
+
+### Going forward
 My final thoughts going forward are wondering if I would have to input every possible combinations score, or if there is a way the program could recognize the value of each schoool and know which values/schools sums would equal the value of arg 1 since there would only be 1 correct answer from the binary values. 
-
-
 
