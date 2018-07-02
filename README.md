@@ -3,8 +3,7 @@ Computer Programming Block 2 Summer 2018
 
 Using what we learned about binary being 1's and 0's in different powers of base 2 locations I will be looking at scores in order to know information. For C language I will be looking at knowing where students applied.
 
-I found from : https://gcc.gnu.org/onlinedocs/gcc/Binary-constants.html
-That in c I am able to use 0b as code for assigning values in binary. 
+I found [here](https://gcc.gnu.org/onlinedocs/gcc/Binary-constants.html) that in c I am able to use 0b as code for assigning values in binary. 
 
 below is my experimentation with printing in binary:
 ``` c 
