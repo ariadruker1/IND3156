@@ -237,6 +237,13 @@ int main(int argc, char *argv[]){
     return 0;
 }
 ```
+Finally I wanted to be able to have cominations of schools, so I added another condition that was an example.
 
-
+``` c
+    if (arg1 == (Oxford + Camebridge)) {
+        printf("Oxford and Camebridge \n");
+        return 0;
+    }
+```
+My final thoughts going forward are wondering if I would have to input every answer option or if there is a way I could have arg 1 = what combination of schools and have the program recognize the value of each schoool and know which values/schools sums to equal the value of arg 1.
 
