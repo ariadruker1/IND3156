@@ -144,12 +144,12 @@ int pairing(int student[], int res0[], int res1[])
 ```
 I really struggled getting the program to read values and be able to draw comparisons or find answers within data so I tried coming up with matrix's:
 
-Students matrix                         Residence matrix
-Aaron   0  0 1 2 3 4                    Alabama     0  2 3 4 1 2
-Byron   1  2 3 1 4 0                    Boston      1  3 1 4 2 0
-Cyndi   2  0 1 3 2 4                    Cornell     2  0 2 1 3 4
-Dan     3  1 3 2 4 0                    Dartmouth   3  4 1 0 2 3
-Ellen   4  3 2 4 0 1                    Edinburgh   4  1 0 3 2 4
+Students matrix:                          Residence matrix:
+Aaron   0  0 1 2 3 4;                    Alabama     0  2 3 4 1 2;
+Byron   1  2 3 1 4 0;                    Boston      1  3 1 4 2 0;
+Cyndi   2  0 1 3 2 4;                    Cornell     2  0 2 1 3 4;
+Dan     3  1 3 2 4 0;                    Dartmouth   3  4 1 0 2 3;
+Ellen   4  3 2 4 0 1;                    Edinburgh   4  1 0 3 2 4;
 
 I would have use the (1,:) column in both matrix's as the reference to the name have it be the reference for the other matrix. The matrix numbers beyond the first column would have their preferences listed, the number alligning to the other matrix (Alabama would be 0 in the student matrix and would be Cindi and Aaron's first choices, Cindi would be shown by the number 2 in the preferences list of the residence matrix, and Aaron by 0 in the residence matrix. Alamba's first choice would have been Cindi as well and that would have been a stable match. Cornell's first choice would have been Aaron, but Cornell was Aaron's third choice.)
 
