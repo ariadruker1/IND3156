@@ -157,19 +157,10 @@ I would have used the (1,:) column in both matrix's as the reference to the name
 
 I could not get the students preferences be able to pair with the resicency options. Once paired, I would still have to have the residences then evaluate if they got their first choice, and who they should propose/acceptance to that is their top stable choice. The different rounds and evaluating which is best for both parties is proving too hard for me in terms of programming.
 
-I am shifting my focus to reverse engineering where students applied to. Using what we learned about binary being 1's and 0's in different powers of base 2 locations I will be looking at and creating scores for students to tell where they applied.
-
-Say:
-Alabama     = 2
-Berkley     = 4
-Cornell     = 8
-Dartmouth   = 16
-Edinburgh   = 32
-
-I will start by creating data for different students and their scores and try and use a program to tell me where they applied.
+I am shifting my focus to reverse engineering where students applied to. Using what we learned about binary being 1's and 0's in different powers of base 2 locations I will be looking at scores for students to tell where they applied.
 
 I found from : https://gcc.gnu.org/onlinedocs/gcc/Binary-constants.html
-That using 0b then typing in binary I am able to create binary in the c language
+That in c I am able to use 0b as code for assigning values in binary.
 
 below is my experimentation with printing in binary:
 ``` c 
@@ -193,7 +184,7 @@ Oxford      0   0   0   1
 Camebridge  0   0   1   0
 Caltech     0   0   1   1
 
-I realized in order to ensure accuracy I would have to have only 1 school be represented by each base 2. Say Aaron had a score of 3, the compute would not know if he had applied to both Oxford and Camedridge or if he had onl applied to Caltech. Going forward I can only assign 1 base per university.
+I realized in order to ensure accuracy I would have to have only 1 school be represented by each base 2. Say Aaron had a score of 3, the computer would not know if he had applied to both Oxford and Camedridge or if he had onl applied to Caltech. Going forward I can only assign 1 base per university.
 
 ``` c
 int main(void) {
@@ -245,5 +236,60 @@ Finally I wanted to be able to have cominations of schools, so I added another c
         return 0;
     }
 ```
+My final code being:
+``` c
+#include <stdio.h>
+
+int main(int argc, char *argv[]){
+    int Oxford, Camebridge, Caltech, arg1;
+    Oxford = 0b1;
+    Camebridge = 0b010;
+    Caltech = 0b100;
+    sscanf(argv[1], "%d", &arg1);
+    if (arg1 == Oxford) {
+        printf("Oxford \n");
+        return 0;
+    }
+    if (arg1 == Camebridge) {
+        printf("Camebridge \n");
+        return 0;
+    }
+    if (arg1 == Caltech) {
+        printf("Caltech \n");
+        return 0;
+    }
+    if (arg1 == (Oxford + Camebridge)) {
+        printf("Oxford and Camebridge \n");
+        return 0;
+    }
+    if (arg1 == (Oxford + Caltech)) {
+        printf("Oxford and Caltech \n");
+        return 0;
+    }
+    if (arg1 == (Camebridge + Caltech)) {
+        printf("Caltech and Camebridge\n");
+        return 0;
+    }
+    if (arg1 == (Camebridge + Caltech + Oxford)) {
+        printf("Oxfortd, Caltech and Camebridge\n");
+        return 0;
+    }
+    else {
+        printf("Oxford = %d \n", Oxford);
+        printf("Camebridge = %d \n", Camebridge);
+        printf("Caltech = %d \n", Caltech);
+        return 0;
+    }
+}
+```
+where at the command line 
+command line:   ./a.out 1;  ./a.out 2;  ./a.out 3;              ./a.out 4   ./a.out 5           ./a.out 6
+returned:       Oxford ;    Camebridge  Oxford and Camebridge   Caltech     Oxford and Caltech  Caltech and Camebridge
+
+and ./a.out 7
+Oxfortd, Caltech and Camebridge
+
+The next possible integer being ./a.out 8 would mean we added 1000 binary wise we would have added another column. This would allow us to then go up to ./a.out 15 before having to add another 1 to the 16 column of binary code.  
+
 My final thoughts going forward are wondering if I would have to input every answer option or if there is a way I could have arg 1 = what combination of schools and have the program recognize the value of each schoool and know which values/schools sums to equal the value of arg 1.
 
