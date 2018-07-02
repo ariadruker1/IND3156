@@ -1,19 +1,6 @@
 # IND3156
 Computer Programming Block 2 Summer 2018
 
-
-```python
-a = [1,2,3]
-b = (transpose) a
-print('a=', a, 'b=', b)
-```
-
-I want to look at song lyrics and be able to compare the different scores but am having trouble getting VADER running on my computer. After running line:
-```
-pip install vaderSentiment
-```
-I have it on my computer but I keep gettng the error "'encoding' is an invalid keyword argument for this function"
-
 I have decided to switch to the Gale Shapely matching problem. Where I will be trying to match different medical school's top choices of students for their residency opportunity with different students and their top choices of medical school residencies. 
 
 I will be starting this code in C language.
@@ -138,10 +125,45 @@ The Output is:
 
  r1[1]    = 2
  
-Above shows my defining of integer arrays for students 1 and 2. I will be using the order of numbers in the array as each entity's preferences for the corresponding type. 
+Above shows my defining of integer arrays for students 0 and 1. I will be using the order of numbers in the array as each entity's preferences for the corresponding type. 
 
-
-This problem exists because as seen above, Aaron's top pick will be r1, which is Boston University, and Boston University's top pick will s3 be Dan.  
+This problem exists because as seen above, Aaron's top pick will be r1, which is Boston University, and Boston University's top pick will be s3, Dan.  
 
 The next stage is the application and acceptance process.
-The students will apply to their top choice first. The residency's will accept the lowest possible x in their array choices of r[x]. The earlier in the array, the higher the pick the student is for that residency position. 
+The students will apply to their top choice first. The residency's will accept the lowest possible n in their array choices of r[n]. The lower the n value, the higher the pick the student is for that residency position and vice versa. 
+
+The first round of proposals will be the student going to their number one choice. To know which school that is, we have to look at their s[0] value. for s0[0] the value is 1. This means I would want to try and pair r1 with s0[0]. 
+
+I tried creating a function at the bottom that would look at the values within the array and match it to the other array. My problem is that I'm not able to get the names of the numbers in the array be seen as digits, they are only part of the name. So the (num) value is not replacing the digit in res in order to find the first choice of the student.
+```
+int pairing(int student[], int res0[], int res1[])
+    num = student[0]
+    int pair[] = {student[], res(num))}
+    printf("\n pair     = %d\n", pair[];
+}
+```
+I really struggled getting the program to read values and be able to draw comparisons or find answers within data so I tried coming up with matrix's:
+
+Students matrix                         Residence matrix
+Aaron   0  0 1 2 3 4                    Alabama     0  2 3 4 1 2
+Byron   1  2 3 1 4 0                    Boston      1  3 1 4 2 0
+Cyndi   2  0 1 3 2 4                    Cornell     2  0 2 1 3 4
+Dan     3  1 3 2 4 0                    Dartmouth   3  4 1 0 2 3
+Ellen   4  3 2 4 0 1                    Edinburgh   4  1 0 3 2 4
+
+I would have use the (1,:) column in both matrix's as the reference to the name have it be the reference for the other matrix. The matrix numbers beyond the first column would have their preferences listed, the number alligning to the other matrix (Alabama would be 0 in the student matrix and would be Cindi and Aaron's first choices, Cindi would be shown by the number 2 in the preferences list of the residence matrix, and Aaron by 0 in the residence matrix. Alamba's first choice would have been Cindi as well and that would have been a stable match. Cornell's first choice would have been Aaron, but Cornell was Aaron's third choice.)
+
+I'm having a really hard time getting the students preferences be able to pair with the resicency options. I would still ahve to, once paired, have hte residences then evaluate if they got their first choice, and who they should propose acceptance to that is their top choice. The different rounds and evaluating which is best for both parties is proving to hard for me in terms of programming.
+
+I am shifting my focus to reverse engineering of where students applied to. Using what we learned about binary being 1's and 0's in different powers of base 2 locations I will be looking at and creating scores for students to tell where they applied.
+
+Say:
+Alabama     = 2
+Berkley     = 4
+Cornell     = 8
+Dartmouth   = 16
+Edinburgh   = 32
+
+I will start by creating data for different students and their scores and try and use a program to tell me where they applied.
+
+
