@@ -153,20 +153,13 @@ Oxford, Caltech, and Cambridge
 The next possible integer being ./a.out 8 would mean we added the 1000 binary code and would, therefore, have to add another column of 1/0 options. This would allow us to then go up to ./a.out 15 before having to add another 1/0 to the 16 column of binary code this is because I put the value of each university in terms of base 2.  
 
 ## GO Language Election
+In the event of an election for positions such as city council, often people run as a party and have multiple candidates, of which you can vote for a certain amount. In this instance if someone were to vote for the VISION party in Vancouver, this is an example of how to keep track of the unique combinations that a person could have voted.
+
 Just starting with naming and printing my variables, I wrote the code below
 ``` GO
 package main
 
 import "fmt"
-
-//format for names
-//m = running for Mayor
-// sb = running for School Board
-// cc = city council
-// COPE = one party in Vancouver
-// Vision = other party in Vancouver
-//format is - PositionInitialsParty
-
 func main() {
 	var MGrVision uint = 1
 	var MMwCope uint = 2
@@ -207,7 +200,69 @@ func main() {
 	vote(42)
 }
 ```
+Interestingly I found that for this project, in using this layout for a function I could avoid the use of setting variables as I could simply for every given x just print my solution like so below.
+``` go
+package main
 
+import "fmt"
+
+func vote(x int) int {
+	fmt.Println("you have voted for:")
+	if x == 1 {
+		fmt.Println("Mayor Gregor Robertson VISION")
+	}
+	if x == 2 {
+		fmt.Println("Mayor Meena Wong COPE")
+	}
+	if x == 3 {
+		fmt.Println("Please pick either VISION or COPE candidate for Mayor")
+	}
+	return x
+}
+func main() {
+	vote(2)
+}
+```
+In the spirit of this project though I will keep to a more literal translation from c and store variables as seen in my final code below:
+
+``` GO
+package main
+
+import "fmt"
+
+func vote(x int) int {
+	fmt.Println("you have voted for:")
+	var CatherineEvans = 1
+	var RaymondLouie = 2
+	var HeatherDeal = 4
+	if x == CatherineEvans {
+		fmt.Println("Catherine Evans VISION")
+	}
+	if x == RaymondLouie {
+		fmt.Println("Raymond Louie Wong VISION")
+	}
+	if x == RaymondLouie+CatherineEvans {
+		fmt.Println("Catherine Evans and  Raymond Louie VISION")
+	}
+	if x == HeatherDeal {
+		fmt.Println("Heather Deal VISION")
+	}
+	if x == HeatherDeal+CatherineEvans {
+		fmt.Println("Heather Deal and Christine Evans VISION")
+	}
+	if x == HeatherDeal+RaymondLouie {
+		fmt.Println("Heather Deal and Raymond Louie VISION")
+	}
+	if x == HeatherDeal+CatherineEvans+RaymondLouie {
+		fmt.Println("Heather Deal, Catherine Evans and Raymond Louie VISION")
+	}
+
+	return x
+}
+func main() {
+	vote(7)
+}
+```
 
 # Change Log
 
@@ -247,51 +302,13 @@ at the command line. The build call means it will be compiled to create and exec
 Writing my above applications code for the go language I began with [playing with binary](https://github.com/ariadruker1/IND3156/blob/master/binary.go). What I found was that unlike C I could not define variables in binary but rather would have to define them as integers and use bitwise logic statements to change the binary bit by bit. 
 
 ``` go
-package main
-
-import "fmt"
-
-func main() {
-	var x uint = 8
-	var me uint = 0
-	fmt.Println(x)
-	fmt.Println(me)
 	x = x & me
-	fmt.Println(x)
-	fmt.Println(me)
-}
 ```
-The above code gives the output:
-8
-0
-0
-0
 ["The AND operator has the nice side effect of selectively clearing bits of an integer value to zero."](https://medium.com/learning-the-go-programming-language/bit-hacking-with-go-e0acee258827)
 
-I was able to assign values and print both values and names. The next step was being able to accept arguments from the command line. First I had to import os because ["os.Args provides access to raw command-line arguments."](https://gobyexample.com/command-line-arguments). I am however having a great deal of trouble getting the arguments from the commandline to be accepted as integers rather than strings. I tried using 'strconv' but I still can't get the inputs to the point where I can work with them as integers and then return them to print. 
-``` go
-package main
+I was able to assign values and print both values and names. The next step was being able to accept arguments from the command line. First I had to import os because ["os.Args provides access to raw command-line arguments."](https://gobyexample.com/command-line-arguments). I am however having a great deal of trouble [getting the arguments from the commandline to be accepted as integers](https://github.com/ariadruker1/IND3156/blob/master/argumentplay.go) rather than strings. I tried using 'strconv' but I still can't get the inputs to the point where I can work with them as integers and then return them to print. 
 
-import (
-	"fmt"
-	"os"
-	"strconv"
-)
-
-func main() {
-	argsWithProg := os.Args
-	argsWithoutProg := strconv.Atoi(os.Args[1])
-	arg := os.Args[3]
-	fmt.Println(argsWithProg)
-	fmt.Println(argsWithoutProg)
-	fmt.Println(arg)
-
-}
-```
-
-
-As such moving forward I will for now not be using command line arguemtents but rather try and make a function.
-
+Not being able to accept arguments from the command line, I switched my program to what is seen above as my [final program](https://github.com/ariadruker1/IND3156/blob/master/electfunc.go) where I instead use a function.
 
 
 ### Going forward
