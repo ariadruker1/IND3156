@@ -1,7 +1,9 @@
 # IND3156
 Computer Programming Block 2 Summer 2018
 
-I wanted to work more with binary in a coded language beyond just discussion, whiteboard or use of the BigDecimal. Using what we learned on the whiteboard about using binary's 1's and 0's in different powers of base 2 locations to relay information. I chose to explore how getting a number can relay information about categories and overlap of categories. I used the C language to explore a way of knowing where students applied for university.
+I wanted to work more with binary in a coded language beyond just discussion, whiteboard or use of the BigDecimal. Using what we learned on the whiteboard about using binary's 1's and 0's in different powers of base 2 locations to relay information. I chose to explore how getting a number can relay information about categories and overlap of categories. 
+
+## C Language University Applications
 
 I found [here](https://gcc.gnu.org/onlinedocs/gcc/Binary-constants.html) that in c I am able to use 0b as code for assigning values in binary. 
 
@@ -150,7 +152,44 @@ Oxford, Caltech, and Cambridge
 
 The next possible integer being ./a.out 8 would mean we added the 1000 binary code and would, therefore, have to add another column of 1/0 options. This would allow us to then go up to ./a.out 15 before having to add another 1/0 to the 16 column of binary code this is because I put the value of each university in terms of base 2.  
 
-# GO Language Election
+## GO Language Election
+Just starting with naming and printing my variables, I wrote the code below
+``` GO
+package main
+
+import "fmt"
+
+//format for names
+//m = running for Mayor
+// sb = running for School Board
+// cc = city council
+// COPE = one party in Vancouver
+// Vision = other party in Vancouver
+//format is - PositionInitialsParty
+
+func main() {
+	var MGrVision uint = 1
+	var MMwCope uint = 2
+	var SbJaVision uint = 4
+	var SbIsCope uint = 8
+	var CcRLVision uint = 16
+	var CcLbCope uint = 32
+	fmt.Println("Mayor Gregor Robertson", MGrVision)
+	fmt.Println(MMwCope)
+	fmt.Println(SbJaVision)
+	fmt.Println(SbIsCope)
+	fmt.Println(CcRLVision)
+	fmt.Println(CcLbCope)
+}
+```
+From which, at the command line I got the output:
+
+Mayor Gregor Robertson 1
+2
+4
+8
+16
+32
 
 
 # Change Log
@@ -184,11 +223,58 @@ $ go run hellotest.go
 where writing 'run' means it will run similar to python and interpret the code.
 Or we could compile the code by using the command:
 ``` go
-go build hellotest.go
+$ go build hellotest.go
 ```
 at the command line. The build call means it will be compiled to create and executable, this is the call similar to javac, gcc, or gfortran. 
 
-Writing my above code.
+Writing my above applications code for the go language I began with [playing with binary](https://github.com/ariadruker1/IND3156/blob/master/binary.go). What I found was that unlike C I could not define variables in binary but rather would have to define them as integers and use bitwise logic statements to change the binary bit by bit. 
+
+``` go
+package main
+
+import "fmt"
+
+func main() {
+	var x uint = 8
+	var me uint = 0
+	fmt.Println(x)
+	fmt.Println(me)
+	x = x & me
+	fmt.Println(x)
+	fmt.Println(me)
+}
+```
+The above code gives the output:
+8
+0
+0
+0
+["The AND operator has the nice side effect of selectively clearing bits of an integer value to zero."](https://medium.com/learning-the-go-programming-language/bit-hacking-with-go-e0acee258827)
+
+I was able to assign values and print both values and names. The next step was being able to accept arguments from the command line. First I had to import os because ["os.Args provides access to raw command-line arguments."](https://gobyexample.com/command-line-arguments). I am however having a great deal of trouble getting the arguments from the commandline to be accepted as integers rather than strings. I tried using 'strconv' but I still can't get the inputs to the point where I can work with them as integers and then return them to print. 
+``` go
+package main
+
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
+
+func main() {
+	argsWithProg := os.Args
+	argsWithoutProg := strconv.Atoi(os.Args[1])
+	arg := os.Args[3]
+	fmt.Println(argsWithProg)
+	fmt.Println(argsWithoutProg)
+	fmt.Println(arg)
+
+}
+```
+
+
+As such moving forward I will for now not be using command line arguemtents but rather try and make a function.
+
 
 
 ### Going forward
