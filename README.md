@@ -150,6 +150,9 @@ Oxford, Caltech, and Cambridge
 
 The next possible integer being ./a.out 8 would mean we added the 1000 binary code and would, therefore, have to add another column of 1/0 options. This would allow us to then go up to ./a.out 15 before having to add another 1/0 to the 16 column of binary code this is because I put the value of each university in terms of base 2.  
 
+# GO Language Election
+
+
 # Change Log
 
 ### June 30th, 2018
@@ -168,7 +171,24 @@ I learned also that in adding code with the [apostrophe mark,](https://github.co
 
 As seen in my README project above, I was able to get a code to function where given a number I was able to know the which statements were made true due to the binary code. I wanted to use some code we'd worked with previously so I added being able to [dictate the number at the command line](https://github.com/ariadruker1/IND3156/commit/5e0c3f2e7df01cfa62050dc6c6921aca982e1193#diff-04c6e90faac2675aa89e2176d2eec7d8). I wanted a problem that could have many facets - this could be used for university applications, grocery shopping, or an efficient way of knowing which people someone voted for in an election, essentially it can be used for any kind of measurement of checked categories and their combinations.  
 
-Other minor edits can be seen along the way in the [history](https://github.com/ariadruker1/IND3156/commits/master/README.md) of this README page.
+### July 2nd, 2018
+Focussed on editing code and adding more details to text. Heavily edited my changelog, other minor edits can be seen along the way in the [history](https://github.com/ariadruker1/IND3156/commits/master/README.md) of this README page.
+
+### July 3rd, 2018
+I've been working on getting GO, the google coding language working. I found [here](https://golang.org/doc/install?download=go1.10.3.darwin-amd64.pkg) how to download and set up the language for my computer. Adam Achs helped show me how to get my different files running in terminal. Adam recomended TextMate and it was a great help, because rather than xcode or just a text editor I have access to writing in hundreds of languages. I then began running 'hello world' code in go, [this website](https://golang.org/#) has both the download and a section to begin playing with a hello world code in go. I began to [learn the different commands and ways to use the go language](https://github.com/ariadruker1/IND3156/blob/master/hellotest.go).
+
+Things I learned: the go language is case sensitive, my program wasn't running initially because the print command wasn't capitalized properly. It also an amazing capacity to be similar to python or to c style languages. It can either be interpreted line by line like python or it can be compiled like c, fortran and java. This can be very helpful because beyond code for myself if I wished to share my program with someone I then have the option of sending them my whole code or I can keep my code and just send the executable. This is also simply decided at the command line which is convenient because it means I do not have to decide at the begining of my project what kind I need it to be. This can is done by writing at the command line either:
+```go
+$ go run hellotest.go
+```
+where writing 'run' means it will run similar to python and interpret the code.
+Or we could compile the code by using the command:
+``` go
+go build hellotest.go
+```
+at the command line. The build call means it will be compiled to create and executable, this is the call similar to javac, gcc, or gfortran. 
+
+Writing my above code.
 
 
 ### Going forward
