@@ -140,6 +140,24 @@ The next possible integer being ./a.out 8 would mean we added the 1000 binary co
 
 # Change Log
 
+## June 30th 2018
+I wanted to use [VADER](https://github.com/ariadruker1/IND3156/blob/master/VADERmanual.py) to look at the positive and negative connotations of of song lyrics and then be able to compare different genres. I began [playing around](https://github.com/ariadruker1/IND3156/blob/master/vaderplay.py) with trying to get the program working on the class computers and then switched to my own. My [first commit](https://github.com/ariadruker1/IND3156/commit/a1acced06d1efc88842daa4c17a7b0a9d7e428a6#diff-04c6e90faac2675aa89e2176d2eec7d8) was me trying to get the software working on my computer
+
+After having a lot of trouble trying to get the VADER program imported and have the analysis working I decided to take my work in a different direction. I did a math problem in my Math Through Interesting Problems with Richard Hoshino where we explored the [Gale-Shapley stable matching problem](https://github.com/ariadruker1/IND3156/commit/bdbee5f0a75ca6a0146f5b4c2c94fe30423a7843#diff-04c6e90faac2675aa89e2176d2eec7d8). My goal was to take student's priorities and university priorities into account and create [n amount](https://github.com/ariadruker1/IND3156/blob/master/startofgaleshapely.c) of stable pairing where everyone got their highest possible number. I tried having the program take the amount of university residency opportunities which is equal to the number of student, from the command line. This was proving a lot harder when I had to factor in [shuffling](https://github.com/ariadruker1/IND3156/blob/master/howtoshuffle.c) the order of priorities per student/university. 
+
+## July 1st 2018
+The next stage of the Gale-Shapely was [getting my program to recognize that the earlier in the array the number, the higher the priority to match](https://github.com/ariadruker1/IND3156/commit/2b1d7c9ca069decdacca71234259aeefe6385506#diff-04c6e90faac2675aa89e2176d2eec7d8). 
+
+I really struggled with being able to [pair the universities and students to their desired partner](https://github.com/ariadruker1/IND3156/commit/73f1eb1e3a586d9f0732a38c96484ef6ca417301#diff-04c6e90faac2675aa89e2176d2eec7d8)  and then further struggled with having them recognize if there were 2 possible partners, how to know which one to take. I had a hard time naming the categories as not just numbers, and because there were 2 groups and numbers carry meaning, the program wasn't working. I tried [creating matrix's](https://github.com/ariadruker1/IND3156/commit/2c1150274f9b111f075cfa372c01f98716efba24#diff-04c6e90faac2675aa89e2176d2eec7d8) but that I still had a lot of trouble trying to connect and evaluate pairings.
+
+[At this point I decided to transition my program once again](https://github.com/ariadruker1/IND3156/commit/6a9d7cc9b32d3b4b24eb8aba7808a9cdd826c56a#diff-04c6e90faac2675aa89e2176d2eec7d8).
+
+I learned also that in adding code with the ["```" "```" marks](https://github.com/ariadruker1/IND3156/commit/be9b4bfb815feba5fc8cf780433999414947d5bb#diff-04c6e90faac2675aa89e2176d2eec7d8) I had to add the name of the language in order for the command words to appear special. 
+
+As seen in my README project above, I was able to get a code to function where given a number I was able to know the which statements were made true due to the binary code. I wanted to use some code we'd worked with previously so I added being able to [dictate the number at the command line](https://github.com/ariadruker1/IND3156/commit/5e0c3f2e7df01cfa62050dc6c6921aca982e1193#diff-04c6e90faac2675aa89e2176d2eec7d8). I wanted a problem that could have many facets - this could be used for university applications, grocery shopping or any kind of layered truths and combinations.  
+
+Other minor edits can be seen along the way in the [history](https://github.com/ariadruker1/IND3156/commits/master/README.md) of this README page.
+
 
 ### Going forward
 My final thoughts going forward are wondering if I would have to input every possible combinations score, or if there is a way the program could recognize the value of each schoool and know which values/schools sums would equal the value of arg 1 since there would only be 1 correct answer from the binary values. 
