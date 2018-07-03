@@ -20,7 +20,7 @@ int main(void) {
 ```
 my output was: i = 42 b = 3
 
-### appplication to project
+### Appplication to project
 
 To then apply it to my problem of applications, I began to think of binary formatting where if given a score I could extract information. Below is where Oxford = 1 Cambridge = 2 and Caltech = 3. 
 
