@@ -191,6 +191,23 @@ Mayor Gregor Robertson 1
 16
 32
 
+Using this [website](https://tour.golang.org/basics/4) I was able to get an example of how a function works in GO and from there I was able to create a basic example of a main program that uses a function with if conditional statements.
+``` go
+package main
+
+import "fmt"
+
+func vote(x int) int {
+	if x == 1 {
+		fmt.Println("Mayor Gregor Robertson")
+	}
+	return x
+}
+func main() {
+	vote(42)
+}
+```
+
 
 # Change Log
 
