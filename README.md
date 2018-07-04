@@ -1,7 +1,7 @@
 # IND3156
 Computer Programming Block 2 Summer 2018
 
-I wanted to work more with binary in a coded language beyond just discussion, whiteboard or use of the BigDecimal. Using what we learned on the whiteboard about using binary's 1's and 0's in different powers of base 2 locations to relay information. I chose to explore how getting a number can relay information about categories and overlap of categories. 
+For my final project I wanted to work more with binary information through a coded language. Using what we learned about how 1's and 0's relay information based on their locations in the different base 2 locations, I chose to explore how a number can relay information about categories or overlaps of categories. 
 
 ## C Language University Applications
 
@@ -31,7 +31,13 @@ Oxford      0   0   0   1
 Cambridge   0   0   1   0
 Caltech     0   0   1   1
 
-In order to ensure the accuracy of the concluding I was drawing based on the information given in a score, I realized I would have to change my definitions. The universities could not be labeled as 1, 2, 3, 4... they would have to be labeled in base 2 so referred to as 1,2,4,8,16... I would have to have only 1 school be represented by each base 2. This is because for the information obtained to be accurate each combination must be given a unique number. Say a student had an application number of 3, the program would not be able to know if the student had applied to both Oxford and Cambridge or if he had only applied to Caltech. Going forward I can only assign 1 base per university. There will only be one 1 and the rest zeros in order to code for each university, this is to ensure unique codes for each university and each combination of universities.
+In order to ensure the accuracy of the conclutions I was drawing based on the information, I realized I would have to change my definitions of variables. The universities could not be set as 1, 2, 3, 4... they would have to be assigned a value of base 2 so only valued at: 1,2,4,8,16... I would have to have only 1 school be represented by each base 2. This is because for the information obtained to be accurate each combination must be represented by a unique number. Say a student had an application number of 3, the program would not be able to know if the student had applied to both Oxford and Cambridge or if he had only applied to Caltech. Going forward I can only assign 1 base per university. For every base 2 column in binary there must only be one 1 and the rest zeros in order to code for each university, this is to ensure unique codes for each university and each combination of universities.
+
+Binary          8   4   2   1
+Oxford          0   0   0   1
+Cambridge   	0   0   1   0
+Caltech     	0   1   0   0
+Next would be:	1   0   0   0
 
 ``` c
 int main(void) {
@@ -156,7 +162,7 @@ The next possible integer being ./a.out 8 would mean we added the 1000 binary co
 
 I also created a new solution to the same problem. In first checking if I can subtract the greatest university value and still be greater than or equal to zero I know a range of what the input will be. The input will then fall into into either the first or one of the subsequent loops. The loops check if we can subtract any of the lesser values and still be greater than or equal to zero. If greater than, then it must keep going further into the loop until it does equal zero, this is when we know all bits have been accounted for.
 
-As each loops get smaller and smaller after the first large loop, the greatest one must be first and must end the main function after running. After entering either the large, medium or small loop, all must terminate the main program or else we would end up with the same evaluations, and end up re-printing the same information. If the program went through the big loop succesfully and passed all statements, it would continue evaluating the following loops and would successfully print those as well because the following statements would also be true. This is why the loop returns a zero to the main function. The program can now deduce based on the input from the command line, what university or unique combinations of universities are being called for and print a response accordingly. 
+As each loops get smaller and smaller after the first large loop, the greatest one must be first and must end the main function after running. After entering either the large, medium or small loop, all must terminate the main program or else we would end up with the same evaluations, and end up re-printing the same information. If the program went through the big loop succesfully and passed all statements, it would continue evaluating the following loops successfully and would print those as well. This is why the loop returns a zero to the main function after running any full section. The program can now deduce based on the input from the command line, what university or unique combinations of universities are being called for and print a response accordingly. 
 
 ``` c
 #include <stdio.h>
@@ -216,7 +222,7 @@ int main(int argc, char *argv[]){
 ```
 
 ## GO Language Election
-In the event of an election for positions such as city council, often people run as a party and have multiple candidates, of which you can vote for a certain amount. In this instance if someone were to vote for the VISION party in Vancouver, this is an example of how to keep track of the unique combinations that a person could have voted.
+To practice translating and learn more about Google's GO language, I will be approaching the same problem as above, but with a different situation. In Vancouver's past city council election, people are able to vote for multiple candidates. If someone were to vote for the VISION party in Vancouver, this is an example of how we could keep track of the unique combinations that a person could have voted.
 
 Just starting with naming and printing my variables, I wrote the code below
 ``` GO
@@ -330,18 +336,18 @@ func main() {
 # Change Log
 
 ### June 30th, 2018
-I wanted to use [VADER](https://github.com/ariadruker1/IND3156/blob/master/VADERmanual.py) to look at the positive and negative connotations of song lyrics and then be able to compare different genres. I began [playing around](https://github.com/ariadruker1/IND3156/blob/master/vaderplay.py) with trying to get the program working on the class computers and then switched to my own. My [first commit](https://github.com/ariadruker1/IND3156/commit/a1acced06d1efc88842daa4c17a7b0a9d7e428a6#diff-04c6e90faac2675aa89e2176d2eec7d8) was me trying to get the software working on my computer
+I wanted to use [VADER](https://github.com/ariadruker1/IND3156/blob/master/VADERmanual.py) to look at the positive and negative connotations of song lyrics and then be able to compare different genres. I began [playing around](https://github.com/ariadruker1/IND3156/blob/master/vaderplay.py) with trying to get the program working on the class computers and then switched to my own. My [first real commit](https://github.com/ariadruker1/IND3156/commit/a1acced06d1efc88842daa4c17a7b0a9d7e428a6#diff-04c6e90faac2675aa89e2176d2eec7d8) was me trying to get the software working on my computer.
 
-After having a lot of trouble trying to get the VADER program imported and have the analysis working I decided to take my work in a different direction. I did a math problem in my Math Through Interesting Problems with Richard Hoshino where we explored the [Gale-Shapley stable matching problem](https://github.com/ariadruker1/IND3156/commit/bdbee5f0a75ca6a0146f5b4c2c94fe30423a7843#diff-04c6e90faac2675aa89e2176d2eec7d8). My goal was to take student's priorities and university priorities into account and create [n amount](https://github.com/ariadruker1/IND3156/blob/master/startofgaleshapely.c) of stable pairing where everyone got their highest possible number. I tried having the program take the amount of university residency opportunities which is equal to the number of students, from the command line. This was proving a lot harder when I had to factor in [shuffling](https://github.com/ariadruker1/IND3156/blob/master/howtoshuffle.c) the order of priorities per student/university. 
+After having a lot of trouble trying to get the VADER program imported and have the analysis working, I decided to take my work in a different direction. I tried to do the math problem I had done in my Math Through Interesting Problems class with Richard Hoshino where we explored the Gale-Shapley stable matching problem [(my start)](https://github.com/ariadruker1/IND3156/commit/bdbee5f0a75ca6a0146f5b4c2c94fe30423a7843#diff-04c6e90faac2675aa89e2176d2eec7d8). My goal was to take student's priorities and university priorities into account and create [n amount](https://github.com/ariadruker1/IND3156/blob/master/startofgaleshapely.c) of stable pairing where everyone got their highest possible number. I tried having the program take the amount of university residency opportunities which is equal to the number of students, from the command line. This was proving a lot harder when I had to factor in [shuffling](https://github.com/ariadruker1/IND3156/blob/master/howtoshuffle.c) the order of priorities per student/university. 
 
 ### July 1st, 2018
-The next stage of the Gale-Shapely was [getting my program to recognize that the earlier in the array the number, the higher the priority to match](https://github.com/ariadruker1/IND3156/commit/2b1d7c9ca069decdacca71234259aeefe6385506#diff-04c6e90faac2675aa89e2176d2eec7d8). 
+The next stage of the Gale-Shapely was [getting my program to recognize the earlier in the array, the smaller the number, the higher the priority](https://github.com/ariadruker1/IND3156/commit/2b1d7c9ca069decdacca71234259aeefe6385506#diff-04c6e90faac2675aa89e2176d2eec7d8). 
 
-I really struggled with being able to [pair the universities and students to their desired partner](https://github.com/ariadruker1/IND3156/commit/73f1eb1e3a586d9f0732a38c96484ef6ca417301#diff-04c6e90faac2675aa89e2176d2eec7d8)  and then further struggled with having them recognize if there were 2 possible partners, how to know which one to take. I had a hard time naming the categories as not just numbers, and because there were 2 groups and numbers carry meaning, the program wasn't working. I tried [creating matrix's](https://github.com/ariadruker1/IND3156/commit/2c1150274f9b111f075cfa372c01f98716efba24#diff-04c6e90faac2675aa89e2176d2eec7d8) but that I still had a lot of trouble trying to connect and evaluate pairings.
+I really struggled with being able to [pair the universities and students to their desired partner](https://github.com/ariadruker1/IND3156/commit/73f1eb1e3a586d9f0732a38c96484ef6ca417301#diff-04c6e90faac2675aa89e2176d2eec7d8)  and then further struggled with having them recognize if there were 2 possible partners, how to know which one to take. I had a hard time naming the categories as not just numbers, and because there were 2 I couldn't get the program working. I tried [creating matrix's](https://github.com/ariadruker1/IND3156/commit/2c1150274f9b111f075cfa372c01f98716efba24#diff-04c6e90faac2675aa89e2176d2eec7d8) but I still could not connect and evaluate the pairings.
 
 [At this point I decided to transition my program once again](https://github.com/ariadruker1/IND3156/commit/6a9d7cc9b32d3b4b24eb8aba7808a9cdd826c56a#diff-04c6e90faac2675aa89e2176d2eec7d8).
 
-I learned also that in adding code with the [apostrophe mark,](https://github.com/ariadruker1/IND3156/commit/be9b4bfb815feba5fc8cf780433999414947d5bb#diff-04c6e90faac2675aa89e2176d2eec7d8) I had to add the name of the language in order for the command words to appear special. 
+I learned also that in adding code with the [apostrophe mark,](https://github.com/ariadruker1/IND3156/commit/be9b4bfb815feba5fc8cf780433999414947d5bb#diff-04c6e90faac2675aa89e2176d2eec7d8) I had to add the name of the language in order for the command words to appear special using markdown. 
 
 As seen in my README project above, I was able to get a code to function where given a number I was able to know the which statements were made true due to the binary code. I wanted to use some code we'd worked with previously so I added being able to [dictate the number at the command line](https://github.com/ariadruker1/IND3156/commit/5e0c3f2e7df01cfa62050dc6c6921aca982e1193#diff-04c6e90faac2675aa89e2176d2eec7d8). I wanted a problem that could have many facets - this could be used for university applications, grocery shopping, or an efficient way of knowing which people someone voted for in an election, essentially it can be used for any kind of measurement of checked categories and their combinations.  
 
@@ -349,12 +355,12 @@ As seen in my README project above, I was able to get a code to function where g
 Focussed on editing code and adding more details to text. Heavily edited my changelog, other minor edits can be seen along the way in the [history](https://github.com/ariadruker1/IND3156/commits/master/README.md) of this README page.
 
 ##### Going forward
-My final thoughts going forward are wondering if I would have to input every possible combinations score, or if there is a way the program could recognize the value of each school and know which values/schools sums would equal the value of arg 1 since there would only be 1 correct answer from the binary values. 
+My final thoughts going forward are wondering if I would have to input every possible combinations score, or if there is a way the program could recognize the value of each school and know which values/schools sums would equal the value of the inputted argument - especaially since there can only be 1 correct answer based on the binary values. 
 
 ### July 3rd, 2018
 I've been working on getting GO, the google coding language working. I found [here](https://golang.org/doc/install?download=go1.10.3.darwin-amd64.pkg) how to download and set up the language for my computer. Adam Achs helped show me how to get my different files running in terminal. Adam recomended TextMate and it was a great help, because rather than xcode or just a text editor I have access to writing in hundreds of languages. I then began running 'hello world' code in go, [this website](https://golang.org/#) has both the download and a section to begin playing with a hello world code in go. I began to [learn the different commands and ways to use the go language](https://github.com/ariadruker1/IND3156/blob/master/hellotest.go).
 
-Things I learned: the go language is case sensitive, my program wasn't running initially because the print command wasn't capitalized properly. It also an amazing capacity to be similar to python or to c style languages. It can either be interpreted line by line like python or it can be compiled like c, fortran and java. This can be very helpful because beyond code for myself if I wished to share my program with someone I then have the option of sending them my whole code or I can keep my code and just send the executable. This is also simply decided at the command line which is convenient because it means I do not have to decide at the begining of my project what kind I need it to be. This can is done by writing at the command line either:
+Things I learned: the go language is case sensitive, my program wasn't running initially because the print command wasn't capitalized properly. It also has an amazing capacity to be similar to python or to c style languages. Firstly it can import similar function and when executing/running it can either be interpreted like python or it can be compiled like c, fortran and java. This can be very helpful because beyond code for myself if I wished to share my program with someone I then have the option of sending them my whole code or I can keep my code and just send the executable. This is also simply decided at the command line which is convenient because it means I do not have to decide at the begining of my project what kind I need it to be. This can is done by writing at the command line either:
 ```go
 $ go run hellotest.go
 ```
@@ -363,7 +369,7 @@ Or we could compile the code by using the command:
 ``` go
 $ go build hellotest.go
 ```
-at the command line. The build call means it will be compiled to create and executable, this is the call similar to javac, gcc, or gfortran. 
+at the command line. The build call means it will be compiled to create an executable, this is the call similar to javac, gcc, or gfortran. 
 
 Writing my above applications code for the go language I began with [playing with binary](https://github.com/ariadruker1/IND3156/blob/master/binary.go). What I found was that unlike C I could not define variables in binary but rather would have to define them as integers and use bitwise logic statements to change the binary bit by bit. 
 
@@ -377,6 +383,27 @@ I was able to assign values and print both values and names. The next step was b
 Not being able to accept arguments from the command line, I switched my program to what is seen above as my [final program](https://github.com/ariadruker1/IND3156/blob/master/electfunc.go) where I instead use a function.
 
 ### July 4th, 2018
-I wanted a better solution in my c program. I wanted my program to be able to evaluate an input rather than just what to print. In my [new code](https://github.com/ariadruker1/IND3156/blob/master/remainderapp.c) I started on the white board and thought of different ways of evaluating the input. I came to the idea of checking subtraction, seeing how many different numbers I could subtract from the input and still be greater than or equal to zero. 
+In C I also wanted my program to be able to evaluate an input rather than just what to print. In my [new code](https://github.com/ariadruker1/IND3156/blob/master/remainderapp.c) I started on the white board and thought of different ways of evaluating the input. I came to the idea of checking subtraction, seeing how many different numbers I could subtract from the input and still be greater than or equal to zero. The extention of this can be done for any next base 2. If someone added a university and gave it the code 0b1000 (8) then they would have be the first and greatest loop. The big loop would be similar to -->  
+1. Is - 8 >=0
+	A) yes
+		I) Is -8  -4 >=0
+			1. Yes
+				Is -8 - 4 -2 >=0
+				...
+			2. No
+				A) Is argument -8 -2 >=0
+					I. Yes
+					...
+					II. No
+	B) No
+		I) Is argument - 4 >=0
+			1. Yes
+				Is argument -4 -2
+				...
+			2. No
+	and so on for all smaller values...
+	
+So long as the input is within the range, the program will keep evaluating for every possible combination until we subtract values to zero, at which point we know the unique answer. Being able to deduce information from a number that can be only made up of a unique individual or combination is the power of this vectorized information program. 
+
 
 
