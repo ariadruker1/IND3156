@@ -152,6 +152,8 @@ Oxford, Caltech, and Cambridge
 
 The next possible integer being ./a.out 8 would mean we added the 1000 binary code and would, therefore, have to add another column of 1/0 options. This would allow us to then go up to ./a.out 15 before having to add another 1/0 to the 16 column of binary code this is because I put the value of each university in terms of base 2. 
 
+### Other solution
+
 I also created a new solution to the same problem. In first checking if I can subtract the greatest university value and still be greater than or equal to zero I know a range of what the input will be. The input will then fall into into either the first or one of the subsequent loops. The loops check if we can subtract any of the lesser values and still be greater than or equal to zero. If greater than, then it must keep going further into the loop until it does equal zero, this is when we know all bits have been accounted for.
 
 As each loops get smaller and smaller after the first large loop, the greatest one must be first and must end the main function after running. After entering either the large, medium or small loop, all must terminate the main program or else we would end up with the same evaluations, and end up re-printing the same information. If the program went through the big loop succesfully and passed all statements, it would continue evaluating the following loops and would successfully print those as well because the following statements would also be true. This is why the loop returns a zero to the main function. The program can now deduce based on the input from the command line, what university or unique combinations of universities are being called for and print a response accordingly. 
