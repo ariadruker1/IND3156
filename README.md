@@ -27,16 +27,23 @@ my output was: i = 42 b = 3
 To then apply it to my problem of applications, I began to think of binary formatting where if given a score I could extract information. Below is where Oxford = 1 Cambridge = 2 and Caltech = 3. 
 
 Binary      8   4   2   1
+
 Oxford      0   0   0   1
+
 Cambridge   0   0   1   0
+
 Caltech     0   0   1   1
 
 In order to ensure the accuracy of the conclutions I was drawing based on the information, I realized I would have to change my definitions of variables. The universities could not be set as 1, 2, 3, 4... they would have to be assigned a value of base 2 so only valued at: 1,2,4,8,16... I would have to have only 1 school be represented by each base 2. This is because for the information obtained to be accurate each combination must be represented by a unique number. Say a student had an application number of 3, the program would not be able to know if the student had applied to both Oxford and Cambridge or if he had only applied to Caltech. Going forward I can only assign 1 base per university. For every base 2 column in binary there must only be one 1 and the rest zeros in order to code for each university, this is to ensure unique codes for each university and each combination of universities.
 
 Binary          8   4   2   1
+
 Oxford          0   0   0   1
+
 Cambridge   	0   0   1   0
+
 Caltech     	0   1   0   0
+
 Next would be:	1   0   0   0
 
 ``` c
