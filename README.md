@@ -28,7 +28,7 @@ To then apply it to my problem of applications, I began to think of binary forma
 
 Binary      8   4   2   1
 Oxford      0   0   0   1
-Cambridge  0   0   1   0
+Cambridge   0   0   1   0
 Caltech     0   0   1   1
 
 In order to ensure the accuracy of the concluding I was drawing based on the information given in a score, I realized I would have to change my definitions. The universities could not be labeled as 1, 2, 3, 4... they would have to be labeled in base 2 so referred to as 1,2,4,8,16... I would have to have only 1 school be represented by each base 2. This is because for the information obtained to be accurate each combination must be given a unique number. Say a student had an application number of 3, the program would not be able to know if the student had applied to both Oxford and Cambridge or if he had only applied to Caltech. Going forward I can only assign 1 base per university. There will only be one 1 and the rest zeros in order to code for each university, this is to ensure unique codes for each university and each combination of universities.
@@ -150,7 +150,68 @@ returned:       Oxford ;    Camebridge  Oxford and Camebridge   Caltech     Oxfo
 and ./a.out 7
 Oxford, Caltech, and Cambridge
 
-The next possible integer being ./a.out 8 would mean we added the 1000 binary code and would, therefore, have to add another column of 1/0 options. This would allow us to then go up to ./a.out 15 before having to add another 1/0 to the 16 column of binary code this is because I put the value of each university in terms of base 2.  
+The next possible integer being ./a.out 8 would mean we added the 1000 binary code and would, therefore, have to add another column of 1/0 options. This would allow us to then go up to ./a.out 15 before having to add another 1/0 to the 16 column of binary code this is because I put the value of each university in terms of base 2. 
+
+I also created a new solution to the same problem. In first checking if I can subtract the greatest university value and still be greater than or equal to zero I know a range of what the input will be. The input will then fall into into either the first or one of the subsequent loops. The loops check if we can subtract any of the lesser values and still be greater than or equal to zero. If greater than, then it must keep going further into the loop until it does equal zero, this is when we know all bits have been accounted for.
+
+As each loops get smaller and smaller after the first large loop, the greatest one must be first and must end the main function after running. After entering either the large, medium or small loop, all must terminate the main program or else we would end up with the same evaluations, and end up re-printing the same information. If the program went through the big loop succesfully and passed all statements, it would continue evaluating the following loops and would successfully print those as well because the following statements would also be true. This is why the loop returns a zero to the main function. The program can now deduce based on the input from the command line, what university or unique combinations of universities are being called for and print a response accordingly. 
+
+``` c
+#include <stdio.h>
+
+int main(int argc, char *argv[]){
+    int Oxford, Cambridge, Caltech, arg1, remainder, check, failsafe;
+    Oxford = 0b1;
+    Cambridge = 0b010;
+    Caltech = 0b100;
+    sscanf(argv[1], "%d", &arg1);
+    remainder = arg1-Caltech;
+    check = arg1 - Cambridge;
+    failsafe = arg1 - Oxford;
+    if (remainder >=0) {
+        printf("caltech \n");
+        if (remainder - Cambridge >=0) {
+            printf("Cambridge2 \n");
+            if (remainder - Cambridge - Oxford ==0) {
+                printf("Oxford3 \n");
+                return 0;
+            }
+            if (remainder - Cambridge - Oxford > 0) {
+                printf("too large a number - this is an error! \n");
+                printf("retry with integer in range 1-7 \n");
+                return 0;
+            }
+            return 0;
+        }
+        if (remainder - Oxford >=0) {
+            printf("Oxford3 \n");
+        }
+    return 0;
+    }
+    if (check >=0) {
+        printf("Cambridge1 \n");
+        if (check-Oxford>=0) {
+            printf("Oxford2 \n");
+        }
+        return 0;
+    }
+    if (failsafe ==0) {
+        printf("Oxford1 \n");
+        return 0;
+    }
+    if (remainder-Cambridge-Oxford >0) {
+        printf("too large \n");
+        return 0;
+    }
+    else {
+        printf("Oxford = %d \n", Oxford);
+        printf("Cambridge = %d \n", Cambridge);
+        printf("Caltech = %d \n", Caltech);
+        printf("Please retry entry with ./a.out integer between 1-7 \n");
+        return 0;
+    }
+}
+```
 
 ## GO Language Election
 In the event of an election for positions such as city council, often people run as a party and have multiple candidates, of which you can vote for a certain amount. In this instance if someone were to vote for the VISION party in Vancouver, this is an example of how to keep track of the unique combinations that a person could have voted.
@@ -285,6 +346,9 @@ As seen in my README project above, I was able to get a code to function where g
 ### July 2nd, 2018
 Focussed on editing code and adding more details to text. Heavily edited my changelog, other minor edits can be seen along the way in the [history](https://github.com/ariadruker1/IND3156/commits/master/README.md) of this README page.
 
+##### Going forward
+My final thoughts going forward are wondering if I would have to input every possible combinations score, or if there is a way the program could recognize the value of each school and know which values/schools sums would equal the value of arg 1 since there would only be 1 correct answer from the binary values. 
+
 ### July 3rd, 2018
 I've been working on getting GO, the google coding language working. I found [here](https://golang.org/doc/install?download=go1.10.3.darwin-amd64.pkg) how to download and set up the language for my computer. Adam Achs helped show me how to get my different files running in terminal. Adam recomended TextMate and it was a great help, because rather than xcode or just a text editor I have access to writing in hundreds of languages. I then began running 'hello world' code in go, [this website](https://golang.org/#) has both the download and a section to begin playing with a hello world code in go. I began to [learn the different commands and ways to use the go language](https://github.com/ariadruker1/IND3156/blob/master/hellotest.go).
 
@@ -310,7 +374,7 @@ I was able to assign values and print both values and names. The next step was b
 
 Not being able to accept arguments from the command line, I switched my program to what is seen above as my [final program](https://github.com/ariadruker1/IND3156/blob/master/electfunc.go) where I instead use a function.
 
+### July 4th, 2018
+I wanted a better solution in my c program. I wanted my program to be able to evaluate an input rather than just what to print. In my [new code](https://github.com/ariadruker1/IND3156/blob/master/remainderapp.c) I started on the white board and thought of different ways of evaluating the input. I came to the idea of checking subtraction, seeing how many different numbers I could subtract from the input and still be greater than or equal to zero. 
 
-### Going forward
-My final thoughts going forward are wondering if I would have to input every possible combinations score, or if there is a way the program could recognize the value of each school and know which values/schools sums would equal the value of arg 1 since there would only be 1 correct answer from the binary values. 
 
